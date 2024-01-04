@@ -2,14 +2,11 @@
 #![no_main]
 #![feature(custom_test_frameworks)]
 #![test_runner(crate::base::tests::test_runner)]
+#![reexport_test_harness_main = "test_main"]
 
 mod base;
 
-#[no_mangle]
-pub extern "C" fn _start() -> ! {
+fn main() {
     println!("hello, world!");
     println!("this is a simple OS kernel written in Rust.");
-
-    #[allow(clippy::empty_loop)]
-    loop {}
 }
